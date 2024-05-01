@@ -56,8 +56,19 @@ promise
         },
         (err) => {
             console.log('err', err)
+        })
+    .then(
+        res2 => {
+            console.log('res2', res2)
+        })
+/*    .then(
+        null,
+        err3 => {
+            console.log('err3', err3)
         }
-    )
-    .then(res2 => {
-        console.log('res2', res2)
+    )*/
+
+.catch( //-----------------------> catch тоже самое что последний then, принимающий 2 колбэка
+    err => {
+        console.log('err', err)
     })
