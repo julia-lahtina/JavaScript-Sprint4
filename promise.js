@@ -30,7 +30,7 @@ promise
 // ---------------------------------------------------------------------------------------------------------------------
 // Example-2
 
-let promise = new Promise((resolve, reject) => {
+/*let promise = new Promise((resolve, reject) => {
     setTimeout((response) => {
         if (response.httpSatus >= 200 && response.httpSatus < 400) {
             resolve(response.data)
@@ -61,14 +61,49 @@ promise
         res2 => {
             console.log('res2', res2)
         })
-/*    .then(
-        null,
-        err3 => {
-            console.log('err3', err3)
-        }
-    )*/
+    /!*    .then(
+            null,
+            err3 => {
+                console.log('err3', err3)
+            }
+        )*!/
 
-.catch( //-----------------------> catch тоже самое что последний then, принимающий 2 колбэка
-    err => {
-        console.log('err', err)
+    .catch( //-----------------------> catch тоже самое что последний then, принимающий 2 колбэка
+        err => {
+            console.log('err', err)
+        })*/
+//----------------------------------------------------------------------------------------------------------------------
+
+
+/*
+Promise.resolve(10)
+    .finally(() => {
+        console.log('finally');
+        throw 9000;
     })
+    .then(console.log)
+    .catch(console.log)
+*/
+
+//----------------------------------------------------------------------------------------------------------------------
+
+// async / await
+
+
+/*
+console.log('START')
+async function foo () {
+    try {
+        console.log('START FOO')
+        const response = await new Promise((resolve, reject) => {
+            reject(10)
+        });
+        console.log('MIDDLE')
+    } catch (e) {
+        console.log('error!!!!', e)
+    }
+}
+
+foo()
+
+console.log('END')*/
