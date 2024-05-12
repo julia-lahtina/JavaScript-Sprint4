@@ -1,39 +1,4 @@
 
-import axios from "axios";
-
-const configOMB = {
-    baseURL: 'http://www.omdbapi.com'
-};
-
-const key = '995f97b1';
-const axiosInstance = axios.create(configOMB);
-
-export const  API = {
-    searchFilmByTitle: (title) => {
-        const query = `/?apikey=${key}&s=${title}`;
-        return axiosInstance.get(query)
-    },
-    searchFilmByType: (title, type) => {
-
-    }
-}
-
-
-const handleClickSearch = async () => {
-    try {
-        const {data} = await API.searchFilmByTitle(searchName);
-        const {Search, Error, Response} = data;
-        Response === 'True' ? JSON.stringify(Search) : Error;
-    } catch (err) {
-        console.log('err', err)
-    }
-}
-
-const handleChange = (e) => {
-    const text = e.currentTarget;
-    console.log(text)
-}
-
 //----------------------------------------------------------------------------------------------------------------------
 let bodyEl = document.querySelector('#root');
 bodyEl.style.margin = '100px 0 0 250px'
@@ -48,12 +13,12 @@ bodyEl.appendChild(h2El);
 
 let inputEl = document.createElement('input');
 bodyEl.appendChild(inputEl)
-inputEl.addEventListener('change', handleChange)
+inputEl.addEventListener('change', () => {})
 
 let buttonEl = document.createElement('button');
 buttonEl.innerText = 'Search'
 bodyEl.appendChild(buttonEl)
-buttonEl.addEventListener('click', handleClickSearch)
+buttonEl.addEventListener('click', () => {})
 
 let h2El2 = document.createElement('h2');
 h2El2.innerText = 'Search by type';
